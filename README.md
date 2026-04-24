@@ -37,6 +37,8 @@ The two shaders are:
 
 The title screen bakes the NEON and EON text into `RenderTexture`s at startup so they can be used as physics body textures. Bodies use a local AABB offset to align the visual texture with the collider.
 
+I did my best to write helpful, professional comments without over-commenting (for practice and because I think I will come back to this project), but I did leave some easter eggs scattered throughout the codebase, just to keep myself entertained.
+
 # Gen AI Statement:
 
 Generative AI was used to assist with computing geometry and spawn positions for the levels, and as a learning tool to familiarize myself with Box2D's API and modern C++ practices. All code was written by me.
