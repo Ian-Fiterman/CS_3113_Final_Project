@@ -126,12 +126,12 @@ void TitleScreen::spawnEntities() {
     const float eonCX = mEonX + eonHalfW;
     const b2Vec2 aabbOffset = {0.0f, -toMeters(TEXT_BODY_OFFSET_PX)};
     // NEON
-    const TextureInfo neonInfo = {reinterpret_cast<const raylib::Texture*>(&mNeonTex.texture), 0.0f, false, true};
+    const TextureInfo neonInfo = {mNeonTex.GetTexture(), 0.0f, false, true};
     mState.entities.push_back(Entity::createBox(mState.worldId, neonCX, centerY, neonHalfW, bodyHalfH, neonInfo));
     mState.entities.back().setLocalAABBOffset(aabbOffset);
     mState.entities.back().setLocalAABBExtents({mNeonW + ITALIC_RIGHT_PAD_PX, mWordH});
     // EON
-    const TextureInfo eonInfo = {reinterpret_cast<const raylib::Texture*>(&mEonTex.texture), 0.0f, false, true};
+    const TextureInfo eonInfo = {mEonTex.GetTexture(), 0.0f, false, true};
     mState.entities.push_back(Entity::createBox(mState.worldId, eonCX, centerY, eonHalfW, bodyHalfH, eonInfo));
     mState.entities.back().setLocalAABBOffset(aabbOffset);
     mState.entities.back().setLocalAABBExtents({mEonW + ITALIC_RIGHT_PAD_PX, mWordH});

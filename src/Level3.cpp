@@ -75,8 +75,8 @@ void Level3::spawnEntities() {
     b2Vec2 spawnEdgeLeft = squareLocal(-halfSide, L3_J_EDGE_X_NORM * halfSide, squareCenter);
     b2Vec2 spawnInterior = squareLocal(L3_INTERIOR_Y_NORM * halfSide, -L3_INTERIOR_X_NORM * halfSide, squareCenter);
 
-    spawnConvexAtCentroid({sqTR, spawnEdgeRight, spawnInterior, spawnMidTop}, {&mTexTopRight, TEX_PADDING_PX});
-    spawnConvexAtCentroid({spawnEdgeRight, sqBR, spawnMidBot}, {&mTexBotRight, TEX_PADDING_PX});
-    spawnConvexAtCentroid({spawnInterior, spawnMidBot, sqBL, spawnEdgeLeft}, {&mTexBotLeft, TEX_PADDING_PX});
-    spawnConvexAtCentroid({spawnMidTop, spawnInterior, spawnEdgeLeft, sqTL}, {&mTexTopLeft, TEX_PADDING_PX});
+    spawnConvexAtCentroid({sqTR, spawnEdgeRight, spawnInterior, spawnMidTop}, {mTexTopRight, TEX_PADDING_PX});
+    spawnConvexAtCentroid({spawnEdgeRight, sqBR, spawnMidBot}, {mTexBotRight, TEX_PADDING_PX});
+    spawnConvexAtCentroid({spawnInterior, spawnMidBot, sqBL, spawnEdgeLeft}, {mTexBotLeft, TEX_PADDING_PX});
+    spawnConvexAtCentroid({spawnMidTop, spawnInterior, spawnEdgeLeft, sqTL}, {mTexTopLeft, TEX_PADDING_PX});
 }

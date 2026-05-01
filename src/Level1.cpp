@@ -44,9 +44,9 @@ void Level1::spawnEntities() {
     // Stack three boxes on the ground, each shifted up by one full box height.
     // center Y of each = groundY - halfH - (layer * fullH), so the bottom edge rests on the layer below.
     mState.entities.push_back(Entity::createBox(mState.worldId, spawnX, groundY - L1_BOX_HALF_H_PX, L1_BOX1_HALF_W_PX,
-                                                L1_BOX_HALF_H_PX, {&mBox1Tex, TEX_PADDING_PX}));
+                                                L1_BOX_HALF_H_PX, {mBox1Tex, TEX_PADDING_PX}));
     mState.entities.push_back(Entity::createBox(mState.worldId, spawnX, groundY - L1_BOX_HALF_H_PX - boxLayerH,
-                                                L1_BOX2_HALF_W_PX, L1_BOX_HALF_H_PX, {&mBox2Tex, TEX_PADDING_PX}));
+                                                L1_BOX2_HALF_W_PX, L1_BOX_HALF_H_PX, {mBox2Tex, TEX_PADDING_PX}));
     mState.entities.push_back(Entity::createBox(mState.worldId, spawnX, groundY - L1_BOX_HALF_H_PX - boxLayerH * 2,
-                                                L1_BOX2_HALF_W_PX, L1_BOX_HALF_H_PX, {&mBox2Tex, TEX_PADDING_PX}));
+                                                L1_BOX2_HALF_W_PX, L1_BOX_HALF_H_PX, {mBox2Tex, TEX_PADDING_PX}));
 }

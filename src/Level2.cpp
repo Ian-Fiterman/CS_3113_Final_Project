@@ -51,15 +51,15 @@ void Level2::spawnEntities() {
 
     // T1/T3: base orientation - right angle at bottom-left / bottom-center.
     // T2/T4: flipped 180 deg to fill the other half of each rectangle.
-    spawnConvexAtCentroid({bottomLeft, bottomCenter, topLeft}, {&mTexTriangle, TEX_PADDING_PX, false, false});    // T1
-    spawnConvexAtCentroid({topCenter, topLeft, bottomCenter}, {&mTexTriangle, TEX_PADDING_PX, true, true});       // T2
-    spawnConvexAtCentroid({bottomCenter, bottomRight, topCenter}, {&mTexTriangle, TEX_PADDING_PX, false, false}); // T3
-    spawnConvexAtCentroid({topRight, topCenter, bottomRight}, {&mTexTriangle, TEX_PADDING_PX, true, true});       // T4
+    spawnConvexAtCentroid({bottomLeft, bottomCenter, topLeft}, {mTexTriangle, TEX_PADDING_PX, false, false});    // T1
+    spawnConvexAtCentroid({topCenter, topLeft, bottomCenter}, {mTexTriangle, TEX_PADDING_PX, true, true});       // T2
+    spawnConvexAtCentroid({bottomCenter, bottomRight, topCenter}, {mTexTriangle, TEX_PADDING_PX, false, false}); // T3
+    spawnConvexAtCentroid({topRight, topCenter, bottomRight}, {mTexTriangle, TEX_PADDING_PX, true, true});       // T4
 
     // Inner square spawns directly above the two rectangles. Y offset by the full triangle height
     // plus one half-side so its bottom edge clears the top of the rectangle stack.
     float innerSpawnY = SCREEN_HEIGHT - GROUND_HEIGHT_PX - L2_TRI_LONG_LEG_PX - L2_INNER_SQUARE_HALF_PX;
     mState.entities.push_back(Entity::createBox(mState.worldId, SCREEN_WIDTH / 2.0f, innerSpawnY,
                                                 L2_INNER_SQUARE_HALF_PX, L2_INNER_SQUARE_HALF_PX,
-                                                {&mTexSquare, TEX_PADDING_PX, false, false, 0.0f}));
+                                                {mTexSquare, TEX_PADDING_PX, false, false, 0.0f}));
 }

@@ -37,7 +37,7 @@ inline b2Vec2 toWorld(Vector2 screen) {
 
 // Per-entity texture and rendering configuration
 struct TextureInfo {
-    const raylib::Texture* texture = nullptr;
+    raylib::TextureUnmanaged texture;
     float texturePaddingPx = 0.0f;
     bool textureFlipX = false;
     bool textureFlipY = false;

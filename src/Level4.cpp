@@ -65,7 +65,7 @@ void Level4::spawnEntities() {
             toWorld({screenCenterX + trapTopHalf, trapTopY}),
             toWorld({screenCenterX - trapTopHalf, trapTopY}),
         },
-        {&mTexTrapezoid, TEX_PADDING_PX});
+        {mTexTrapezoid, TEX_PADDING_PX});
 
     // Left triangle: base flush with the trapezoid's top-left corner, short leg horizontal,
     // long leg vertical, right angle at bottom-right.
@@ -76,7 +76,7 @@ void Level4::spawnEntities() {
             toWorld({leftTriBaseX + L4_TRI_SHORT_PX, trapTopY}),
             toWorld({leftTriBaseX + L4_TRI_SHORT_PX, trapTopY - L4_TRI_LONG_PX}),
         },
-        {&mTexTriangle, TEX_PADDING_PX, true, false});
+        {mTexTriangle, TEX_PADDING_PX, true, false});
 
     // Right triangle: mirror of left, flush with the trapezoid's top-right corner,
     // right angle at bottom-left.
@@ -87,7 +87,7 @@ void Level4::spawnEntities() {
             toWorld({rightTriBaseX, trapTopY}),
             toWorld({rightTriBaseX - L4_TRI_SHORT_PX, trapTopY - L4_TRI_LONG_PX}),
         },
-        {&mTexTriangle, TEX_PADDING_PX});
+        {mTexTriangle, TEX_PADDING_PX});
 
     // Each circle stack: two circles resting on the ground touching each other,
     // third circle balanced on top. center Y of bottom circles = groundY - r so they sit on the surface.
@@ -100,11 +100,11 @@ void Level4::spawnEntities() {
     float leftStackCX = screenCenterX - 2.0f * trapBotHalf;
     float rightStackCX = screenCenterX + 2.0f * trapBotHalf;
 
-    spawnCircleAt(leftStackCX - L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {&mCircle, TEX_PADDING_PX});
-    spawnCircleAt(leftStackCX + L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {&mCircle, TEX_PADDING_PX});
-    spawnCircleAt(leftStackCX, circleStackTopY, L4_CIRCLE_RADIUS_PX, {&mCircle, TEX_PADDING_PX});
+    spawnCircleAt(leftStackCX - L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {mCircle, TEX_PADDING_PX});
+    spawnCircleAt(leftStackCX + L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {mCircle, TEX_PADDING_PX});
+    spawnCircleAt(leftStackCX, circleStackTopY, L4_CIRCLE_RADIUS_PX, {mCircle, TEX_PADDING_PX});
 
-    spawnCircleAt(rightStackCX - L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {&mCircle, TEX_PADDING_PX});
-    spawnCircleAt(rightStackCX + L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {&mCircle, TEX_PADDING_PX});
-    spawnCircleAt(rightStackCX, circleStackTopY, L4_CIRCLE_RADIUS_PX, {&mCircle, TEX_PADDING_PX});
+    spawnCircleAt(rightStackCX - L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {mCircle, TEX_PADDING_PX});
+    spawnCircleAt(rightStackCX + L4_CIRCLE_RADIUS_PX, circleSurfaceY, L4_CIRCLE_RADIUS_PX, {mCircle, TEX_PADDING_PX});
+    spawnCircleAt(rightStackCX, circleStackTopY, L4_CIRCLE_RADIUS_PX, {mCircle, TEX_PADDING_PX});
 }

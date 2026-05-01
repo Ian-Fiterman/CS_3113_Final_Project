@@ -115,8 +115,8 @@ Entity Entity::createConvexPolygon(b2WorldId worldId, float screenX, float scree
 /** @brief Renders the entity as a texture with an optional physics outline drawn on top. */
 void Entity::render(Color color, bool drawOutline, raylib::Shader* shader) const {
     const b2ShapeType type = b2Shape_GetType(mShapeId);
-    if (mTexInfo.texture) renderTexture(shader);
-    if (!mTexInfo.texture || drawOutline) {
+    if (mTexInfo.texture.IsValid()) renderTexture(shader);
+    if (!mTexInfo.texture.IsValid() || drawOutline) {
         if (type == b2_polygonShape)
             renderPolygonOutline(color);
         else if (type == b2_circleShape)
@@ -161,19 +161,19 @@ void Entity::renderTexture(raylib::Shader* shader) const {
     const float drawH = mLocalAABBExtents.y + pad * 2.0f;
 
     // Negative source dimension flips the texture along that axis.
-    const float srcX = mTexInfo.textureFlipX ? static_cast<float>(mTexInfo.texture->width) : 0.0f;
-    const float srcW = mTexInfo.textureFlipX ? -static_cast<float>(mTexInfo.texture->width) :
-                                               static_cast<float>(mTexInfo.texture->width);
-    const float srcY = mTexInfo.textureFlipY ? static_cast<float>(mTexInfo.texture->height) : 0.0f;
-    const float srcH = mTexInfo.textureFlipY ? -static_cast<float>(mTexInfo.texture->height) :
-                                               static_cast<float>(mTexInfo.texture->height);
+    const float srcX = mTexInfo.textureFlipX ? static_cast<float>(mTexInfo.texture.width) : 0.0f;
+    const float srcW = mTexInfo.textureFlipX ? -static_cast<float>(mTexInfo.texture.width) :
+                                               static_cast<float>(mTexInfo.texture.width);
+    const float srcY = mTexInfo.textureFlipY ? static_cast<float>(mTexInfo.texture.height) : 0.0f;
+    const float srcH = mTexInfo.textureFlipY ? -static_cast<float>(mTexInfo.texture.height) :
+                                               static_cast<float>(mTexInfo.texture.height);
 
     const Rectangle src = {srcX, srcY, srcW, srcH};
     const Rectangle dest = {aabbCenter.x, aabbCenter.y, drawW, drawH};
     const Vector2 orig = {drawW / 2.0f, drawH / 2.0f}; // pivot at draw center
 
     if (shader) shader->BeginMode();
-    mTexInfo.texture->Draw(src, dest, orig, -(angleDeg + mTexInfo.textureAngleOffset), WHITE);
+    mTexInfo.texture.Draw(src, dest, orig, -(angleDeg + mTexInfo.textureAngleOffset), WHITE);
     if (shader) EndShaderMode();
 }
 
